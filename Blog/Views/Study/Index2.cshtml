@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    $(function () {
+        //$('#main-nav a:last').tab('show');//初始化显示哪个tab
+
+        $('#main-nav a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        })
+    })
+
+</script>
+
+<style>
+    #main-nav {
+        margin-left: 10px;
+    }
+
+        #main-nav.nav-tabs.nav-stacked > li > a {
+            padding: 10px 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #4A515B;
+            background: #E9E9E9;
+            background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAFAFA), color-stop(100%,#E9E9E9));
+            background: -webkit-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
+            background: -o-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
+            background: -ms-linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
+            background: linear-gradient(top, #FAFAFA 0%,#E9E9E9 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
+            border: 1px solid #D5D5D5;
+            border-radius: 4px;
+        }
+
+            #main-nav.nav-tabs.nav-stacked > li > a > span {
+                color: #4A515B;
+            }
+
+            #main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover {
+                color: #FFF;
+                background: #3C4049;
+                background: -moz-linear-gradient(top, #4A515B 0%, #3C4049 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4A515B), color-stop(100%,#3C4049));
+                background: -webkit-linear-gradient(top, #4A515B 0%,#3C4049 100%);
+                background: -o-linear-gradient(top, #4A515B 0%,#3C4049 100%);
+                background: -ms-linear-gradient(top, #4A515B 0%,#3C4049 100%);
+                background: linear-gradient(top, #4A515B 0%,#3C4049 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049');
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049')";
+                border-color: #2B2E33;
+            }
+
+                #main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover > span {
+                    color: #FFF;
+                }
+
+        #main-nav.nav-tabs.nav-stacked > li {
+            margin-bottom: 4px;
+        }
+    /*定义二级菜单样式*/
+    /*.secondmenu a {
+        font-size: 10px;
+        color: #4A515B;
+        text-align: center;
+    }
+
+    .navbar-static-top {
+        background-color: #212121;
+        margin-bottom: 5px;
+    }
+
+    .navbar-brand {
+        background: url('') no-repeat 10px 8px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 50px;
+        color: #fff;
+    }*/
+</style>
+
+
+@*<div class="navbar navbar-duomi navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Admin/index.html" id="logo">
+                    配置管理系统（流量包月）
+                </a>
+            </div>
+        </div>
+    </div>*@
+
+<div class="container-fluid" style="background-color:white;height:100%">
+    <div class="row" style="padding-top:20px;padding-bottom:20px">
+        <div class="col-md-2" style="padding-right:0px;">
+            <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+
+
+                @foreach (List<string> item in Model)
+                {
+                    <li role="presentation">
+                        <a href="#red" role="tab" data-toggle="tab">
+                            <i class="glyphicon glyphicon-th-large"></i>
+                            
+                            
+                        </a>
+                    </li>
+                }
+
+
+
+
+
+
+
+
+
+                @*<li role="presentation">
+                    <a href="#red" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                        红色
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#blue" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-credit-card"></i>
+                        蓝色
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#yellow" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-globe"></i>
+                        黄色
+                        <span class="label label-warning pull-right">5</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#green" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        绿色
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#gray" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-fire"></i>
+                        灰色
+                    </a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="#test" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                        测试
+                    </a>
+                </li>*@
+            </ul>
+        </div>
+        <div class="col-md-10 tab-content" id="myTabContent" style="padding:0px 50px 50px 30px;">
+            @*<div style="background-color:#E9E9E9">*@
+
+            <div role="tabpanel" class="tab-pane" id="red">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="#">Panel heading without title</a>
+                    </div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <a href="#">Panel heading without title</a>
+                    </div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <a href="#">Panel heading without title</a>
+                    </div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <a href="#">Panel heading without title</a>
+                    </div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+            </div>
+
+
+            <div role="tabpanel" class="tab-pane" style="background-color:blue;height:500px" id="blue">蓝色</div>
+            <div role="tabpanel" class="tab-pane" style="background-color:yellow" id="yellow">黄色</div>
+            <div role="tabpanel" class="tab-pane" style="background-color:green" id="green">绿色</div>
+            <div role="tabpanel" class="tab-pane" style="background-color:gray" id="gray">灰色</div>
+            <div role="tabpanel" class="tab-pane" style="background-color:pink" id="test">测试</div>
+        </div>
+    </div>
+</div>
